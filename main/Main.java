@@ -1,5 +1,5 @@
 /*
-created by chamois (github.com/chamoisthefirst)
+created by chamois gihub: github.com/chamoisthefirst; discord: chamoisthefirst
 
 log:
 OCT 22nd 2024: started
