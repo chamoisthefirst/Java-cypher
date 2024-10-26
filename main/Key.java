@@ -1,3 +1,7 @@
+/*
+created by chamois gihub: github.com/chamoisthefirst; discord: chamoisthefirst
+*/
+
 package main;
 
 public class Key {
