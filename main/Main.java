@@ -1,3 +1,11 @@
+/*
+created by chamois (github.com/chamoisthefirst)
+
+log:
+OCT 22nd 2024: started
+OCT 26 2024: fixed issue with key
+*/
+
 package main;
 
 import java.util.Scanner;
@@ -5,13 +13,18 @@ import java.util.Scanner;
 public class Main { 
 	public static void main(String[] args) {
 		
-		Key key = new Key("hello world");
+		Key key = new Key("");
 		
 		String[] KEY = key.apply();
 		
 		
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter a message");
+		
+		System.out.println("Enter a key");
+		String nk = scanner.nextLine();
+		key.reset(nk);
+		
+		System.out.println("Key:"+key.name+"\n\ncommands:\n  e [message] to encode\n  d [message] to decode encoded message\n  _resetKey [new key] to change key\n  _showKey to show key\n  _fullKey to show code version of key\n\nwaiting for command");
 		while(true) {
 			String message = scanner.nextLine();
 			boolean encode = message.startsWith("encode");
@@ -30,12 +43,16 @@ public class Main {
 				System.out.println("key set to '"+message.substring(10)+"'");
 			}
 			if(message.startsWith("_showKey")) {
-				System.out.println("Key: "+key.name);
+				if(key.name.equals("")) {
+					System.out.println("No key applied");
+				}else {
+					System.out.println("Key: "+key.name);
+				}
 			}
 			if(message.startsWith("_fullKey")) {
-				System.out.print("KEY: {");
+				System.out.print("KEY: {\n");
 				for(String i: KEY) {
-					System.out.print(","+i);
+					System.out.println("    "+i);
 				}
 				System.out.println("}");
 			}
